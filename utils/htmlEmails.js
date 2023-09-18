@@ -5,7 +5,7 @@ export function html({ url, text }) {
 			<h2 style="text-align: center; text-transform: capitalize; color: teal;">
 				Welcome to the DevAT-VietNam channel.
 			</h2>
-			<p>Congratulations! You're almost set to start using NextAuthV$. Just click the button below to validate your
+			<p>Congratulations! You're almost set to start using NextAuthV4. Just click the button below to validate your
 				email address.</p>
 
 			<a href=${url}

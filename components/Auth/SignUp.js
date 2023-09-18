@@ -3,6 +3,7 @@
 import { signUpWithCredentials } from '@/actions/authActions';
 import Button from '../Global/Button';
 import Form from '../Global/Form';
+import Link from "next/link"
 
 // 1:15:58
 const SignUp = () => {
@@ -50,6 +51,10 @@ const SignUp = () => {
 
 				<Button value="Register" />
 			</Form>
+
+			<div style={{ margin: '30px 0' }}>
+				<Link href="/signin">Sign In</Link>
+			</div>
 		</div>
 	);
 };

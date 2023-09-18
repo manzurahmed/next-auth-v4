@@ -5,7 +5,7 @@ import { getServerSession } from 'next-auth/next';
 import User from '@/models/userModel';
 import { redirect } from 'next/navigation';
 import bcrypt from 'bcrypt';
-import { generateToken } from '@/utils/token';
+import { generateToken, verifyToken } from '@/utils/token';
 import sendEmail from '@/utils/sendEmail';
 
 // 1:35:15
@@ -71,6 +71,35 @@ export async function signUpWithCredentials(data) {
 
 		return {
 			msg: 'Sign Up Success! Check your email to complete the registration.'
+		}
+
+	} catch (error) {
+		redirect(`/errors?error=${error.message}`);
+	}
+}
+
+
+// 1:38:43
+export async function verifyWithCredentials(token) {
+
+	try {
+
+		const { user } = verifyToken(token);
+		console.log("verifyWithCredentials: ", user);
+		const userExist = await User.findOne({ email: user.email });
+		// যদি ডাটাবেজে টোকেনের মধ্যেকার ইমেইল আইডি থাকে
+		if (userExist) {
+			return {
+				msg: 'Verify Successful!'
+			}
+		}
+
+		const newUser = new User(user);
+		// console.log({ newUser });
+		await newUser.save();
+
+		return {
+			msg: 'Verify Successful!'
 		}
 
 	} catch (error) {
