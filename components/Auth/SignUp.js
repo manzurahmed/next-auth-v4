@@ -15,7 +15,10 @@ const SignUp = () => {
 		// console.log({ name, email, password });
 
 		// 1:20:35
-		const res = await signUpWithCredentials({ name, email, password });
+		const res = await signUpWithCredentials(
+			{ name, email, password }
+		);
+
 		if (res?.msg) {
 			alert(res?.msg);
 		}
