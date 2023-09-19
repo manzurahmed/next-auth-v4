@@ -16,6 +16,7 @@ export const authOptions = {
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET
 		}),
 		CredentialsProvider({
+			// 1:46:03
 			// The name to display on the sign in form (e.g. "Sign in with ...")
 			name: "Credentials",
 			credentials: {
@@ -27,7 +28,9 @@ export const authOptions = {
 				// 1:47:11
 				const { email, password } = credentials;
 
-				const user = await signInWithCredentials({ email, password });
+				const user = await signInWithCredentials(
+					{ email, password }
+				);
 				// console.log({ user });
 
 				return user;
@@ -35,7 +38,8 @@ export const authOptions = {
 		})
 	],
 	pages: {
-		signIn: '/signin'
+		signIn: '/signin',	// app/signin
+		error: '/errors'	// app/errors    // 1:51:20
 	},
 	callbacks: {
 		async signIn({ user, account, profile, email, credentials }) {

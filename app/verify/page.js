@@ -1,8 +1,6 @@
-// 1:37:50
-
 import { verifyWithCredentials } from "@/actions/authActions"
 
-
+// 1:37:50
 const VerifyPage = async ({ searchParams: { token } }) => {
 
 	// console.log({ token })

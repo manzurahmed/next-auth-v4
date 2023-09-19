@@ -52,6 +52,7 @@ const SignUp = () => {
 				<Button value="Register" />
 			</Form>
 
+			{/** 1:42:17 */}
 			<div style={{ margin: '30px 0' }}>
 				<Link href="/signin">Sign In</Link>
 			</div>
